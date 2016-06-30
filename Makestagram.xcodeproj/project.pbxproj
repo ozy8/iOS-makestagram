@@ -37,6 +37,8 @@
 		F17067801D211E8200B6E953 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170677F1D211E8200B6E953 /* PhotoViewController.swift */; };
 		F17067821D211E9500B6E953 /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17067811D211E9500B6E953 /* FriendSearchViewController.swift */; };
 		F17067881D21272800B6E953 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17067871D21272800B6E953 /* PhotoTakingHelper.swift */; };
+		F17495631D24C93400993309 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17495621D24C93400993309 /* PostTableViewCell.swift */; };
+		F17495651D24E2E700993309 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17495641D24E2E600993309 /* ParseHelper.swift */; };
 		F185602D1D23A32700738ED4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185602C1D23A32700738ED4 /* Post.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,8 @@
 		F170677F1D211E8200B6E953 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		F17067811D211E9500B6E953 /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
 		F17067871D21272800B6E953 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
+		F17495621D24C93400993309 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		F17495641D24E2E600993309 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		F185602C1D23A32700738ED4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +195,7 @@
 			children = (
 				6277189D1B0A58E800AF5C6E /* ErrorHandling.swift */,
 				6277189E1B0A58E800AF5C6E /* ParseLoginHelper.swift */,
+				F17495641D24E2E600993309 /* ParseHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 		62C8C1E21B06BD6500DC3EA7 /* Makestagram */ = {
 			isa = PBXGroup;
 			children = (
+				F17495601D24C8FB00993309 /* Views */,
 				F18560291D23A26200738ED4 /* Models */,
 				F17067861D2126DB00B6E953 /* PhotoTaking */,
 				6277189C1B0A58E800AF5C6E /* Helpers */,
@@ -274,6 +280,22 @@
 				F17067871D21272800B6E953 /* PhotoTakingHelper.swift */,
 			);
 			path = PhotoTaking;
+			sourceTree = "<group>";
+		};
+		F17495601D24C8FB00993309 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F17495611D24C8FB00993309 /* Timeline */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F17495611D24C8FB00993309 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				F17495621D24C93400993309 /* PostTableViewCell.swift */,
+			);
+			path = Timeline;
 			sourceTree = "<group>";
 		};
 		F18560291D23A26200738ED4 /* Models */ = {
@@ -503,6 +525,8 @@
 				F17067801D211E8200B6E953 /* PhotoViewController.swift in Sources */,
 				62C8C1E61B06BD6500DC3EA7 /* AppDelegate.swift in Sources */,
 				627718971B0A581700AF5C6E /* FilterViewController.swift in Sources */,
+				F17495651D24E2E700993309 /* ParseHelper.swift in Sources */,
+				F17495631D24C93400993309 /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
