@@ -54,7 +54,7 @@ class ParseHelper {
 //        query.findObjectsInBackgroundWithBlock(completionBlock)
 //    }
 
-    static func timelineRequestForCurrentUser(completionBlock: PFQueryArrayResultBlock) {
+    static func timelineRequestForCurrentUser(range: Range<Int>, completionBlock: PFQueryArrayResultBlock) {
         let followingQuery = PFQuery(className: ParseFollowClass)
         followingQuery.whereKey(ParseFollowFromUser, equalTo:PFUser.currentUser()!)
         
@@ -68,7 +68,59 @@ class ParseHelper {
         query.includeKey(ParsePostUser)
         query.orderByDescending(ParsePostCreatedAt)
         
+        
+        // 2
+        query.skip = range.startIndex
+        // 3
+        query.limit = range.endIndex - range.startIndex
+        
         query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+    static func likePost(user: PFUser, post: Post) {
+        let likeObject = PFObject(className: ParseLikeClass)
+        likeObject[ParseLikeFromUser] = user
+        likeObject[ParseLikeToPost] = post
+        
+        likeObject.saveInBackgroundWithBlock(nil)
+    }
+    
+    static func unlikePost(user: PFUser, post: Post) {
+        // 1
+        let query = PFQuery(className: ParseLikeClass)
+        query.whereKey(ParseLikeFromUser, equalTo: user)
+        query.whereKey(ParseLikeToPost, equalTo: post)
+        
+        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
+            // 2
+            if let results = results {
+                for like in results {
+                    like.deleteInBackgroundWithBlock(nil)
+                }
+            }
+        }
+    }
+    
+    static func likesForPost(post: Post, completionBlock: PFQueryArrayResultBlock) {
+        let query = PFQuery(className: ParseLikeClass)
+        query.whereKey(ParseLikeToPost, equalTo: post)
+        // 2
+        query.includeKey(ParseLikeFromUser)
+        
+        query.findObjectsInBackgroundWithBlock(completionBlock)
+    }
+    
+}
+
+// in order to know whether two objects have the same the same objectId. Solve the liked but not displayed problem. 
+extension PFObject {
+    
+    public override func isEqual(object: AnyObject?) -> Bool {
+        if (object as? PFObject)?.objectId == self.objectId {
+            return true
+        } else {
+            return super.isEqual(object)
+        }
     }
     
 }

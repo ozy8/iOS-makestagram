@@ -144,6 +144,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="hFd-dR-SVw" id="Ac0-8z-amQ"/>
+                                    <outlet property="delegate" destination="hFd-dR-SVw" id="f74-lZ-akD"/>
                                 </connections>
                             </tableView>
                         </subviews>
