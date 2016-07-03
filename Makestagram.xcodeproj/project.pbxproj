@@ -33,6 +33,7 @@
 		62C8C1FC1B06BD6500DC3EA7 /* MakestagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C8C1FB1B06BD6500DC3EA7 /* MakestagramTests.swift */; };
 		D20A22E6BBCEC461E516E7EF /* Pods_Makestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185886FBC04D4C0EC1EFE929 /* Pods_Makestagram.framework */; };
 		DB097E6E1BDCE7B02E29CDC2 /* Pods_MakestagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24A00AF015C0EEB0BBF702F /* Pods_MakestagramTests.framework */; };
+		F120722A1D28CD8D001DB1B3 /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12072291D28CD8D001DB1B3 /* FriendSearchTableViewCell.swift */; };
 		F170677E1D211E6900B6E953 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170677D1D211E6900B6E953 /* TimelineViewController.swift */; };
 		F17067801D211E8200B6E953 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170677F1D211E8200B6E953 /* PhotoViewController.swift */; };
 		F17067821D211E9500B6E953 /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17067811D211E9500B6E953 /* FriendSearchViewController.swift */; };
@@ -101,6 +102,7 @@
 		A87ABD86595ED94E3E1846DC /* Pods-MakestagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakestagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MakestagramTests/Pods-MakestagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B24A00AF015C0EEB0BBF702F /* Pods_MakestagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakestagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E031BC44B684AB019F583887 /* Pods-Makestagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makestagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram.debug.xcconfig"; sourceTree = "<group>"; };
+		F12072291D28CD8D001DB1B3 /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
 		F170677D1D211E6900B6E953 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		F170677F1D211E8200B6E953 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		F17067811D211E9500B6E953 /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F12072241D28CC5C001DB1B3 /* FriendSearch */ = {
+			isa = PBXGroup;
+			children = (
+				F12072291D28CD8D001DB1B3 /* FriendSearchTableViewCell.swift */,
+			);
+			path = FriendSearch;
+			sourceTree = "<group>";
+		};
 		F17067861D2126DB00B6E953 /* PhotoTaking */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +295,7 @@
 		F17495601D24C8FB00993309 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F12072241D28CC5C001DB1B3 /* FriendSearch */,
 				F17495611D24C8FB00993309 /* Timeline */,
 			);
 			path = Views;
@@ -364,6 +375,7 @@
 				TargetAttributes = {
 					62C8C1DF1B06BD6500DC3EA7 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 5T3EKU44GA;
 					};
 					62C8C1F41B06BD6500DC3EA7 = {
 						CreatedOnToolsVersion = 6.3;
@@ -523,6 +535,7 @@
 				F170677E1D211E6900B6E953 /* TimelineViewController.swift in Sources */,
 				F17067881D21272800B6E953 /* PhotoTakingHelper.swift in Sources */,
 				F17067801D211E8200B6E953 /* PhotoViewController.swift in Sources */,
+				F120722A1D28CD8D001DB1B3 /* FriendSearchTableViewCell.swift in Sources */,
 				62C8C1E61B06BD6500DC3EA7 /* AppDelegate.swift in Sources */,
 				627718971B0A581700AF5C6E /* FilterViewController.swift in Sources */,
 				F17495651D24E2E700993309 /* ParseHelper.swift in Sources */,
@@ -658,14 +671,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Makestagram/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "Make-School.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.owzhiyin.Makestagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Makestagram/Makestagram-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -677,14 +693,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Makestagram/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "Make-School.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.owzhiyin.Makestagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Makestagram/Makestagram-Bridging-Header.h";
 			};
 			name = Release;

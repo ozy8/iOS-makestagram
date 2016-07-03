@@ -42,6 +42,13 @@ class PostTableViewCell: UITableViewCell {
             postDisposable?.dispose()
             likeDisposable?.dispose()
             
+            // free memory of image stored with post that is no longer displayed
+            // 1
+            if let oldValue = oldValue where oldValue != post {
+                // 2
+                oldValue.image.value = nil
+            }
+            
             if let post = post {
                 // 2
                 postDisposable = post.image.bindTo(postImageView.bnd_image)

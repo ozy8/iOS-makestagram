@@ -1,6 +1,7 @@
 import Foundation
 import Parse
 import Bond
+import ConvenienceKit
 
 // 1
 class Post : PFObject, PFSubclassing {
@@ -16,6 +17,9 @@ class Post : PFObject, PFSubclassing {
     // creating the likes variable
     var likes: Observable<[PFUser]?> = Observable(nil)
     
+    //define static variable to store cache
+    static var imageCache: NSCacheSwift<String, UIImage>!
+
 //    func uploadPost() {
 //        if let image = image {
 //            // 1
@@ -52,6 +56,9 @@ class Post : PFObject, PFSubclassing {
     
     //download image method
     func downloadImage() {
+        // assign value to image.value directly from cache
+        image.value = Post.imageCache[self.imageFile!.name]
+        
         // if image is not downloaded yet, get it
         // 1
         if (image.value == nil) {
@@ -61,6 +68,8 @@ class Post : PFObject, PFSubclassing {
                     let image = UIImage(data: data, scale:1.0)!
                     // 3
                     self.image.value = image
+                    // if image not cached, proceed as usual. if downloaded, add to cache.
+                    Post.imageCache[self.imageFile!.name] = image
                 }
             }
         }
@@ -111,7 +120,6 @@ class Post : PFObject, PFSubclassing {
         }
     }
     
-    
     //MARK: PFSubclassing Protocol
     
     // 3
@@ -129,6 +137,7 @@ class Post : PFObject, PFSubclassing {
         dispatch_once(&onceToken) {
             // inform Parse about this subclass
             self.registerSubclass()
+            Post.imageCache = NSCacheSwift<String, UIImage>()
         }
     }
     
