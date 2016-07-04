@@ -85,11 +85,15 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
 // MARK: Tab Bar Delegate
 
 extension TimelineViewController: UITableViewDataSource {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.timelineComponent.content.count
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 1
 //        return posts.count
-        return timelineComponent.content.count
+//        return timelineComponent.content.count
+          return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -106,7 +110,8 @@ extension TimelineViewController: UITableViewDataSource {
         // 2
 //        cell.postImageView.image = posts[indexPath.row].image
 //        let post = posts[indexPath.row]
-        let post = timelineComponent.content[indexPath.row]
+//        let post = timelineComponent.content[indexPath.row]
+        let post = timelineComponent.content[indexPath.section]
         // 1
         post.downloadImage()
         //to assess the fetchLikes() function
@@ -136,7 +141,22 @@ extension TimelineViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        timelineComponent.targetWillDisplayEntry(indexPath.row)
+//        timelineComponent.targetWillDisplayEntry(indexPath.row)
+          timelineComponent.targetWillDisplayEntry(indexPath.section)
+    }
+    
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCellWithIdentifier("PostHeader") as! PostSectionHeaderView
+        
+        let post = self.timelineComponent.content[section]
+        headerCell.post = post
+        
+        return headerCell
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
 }
